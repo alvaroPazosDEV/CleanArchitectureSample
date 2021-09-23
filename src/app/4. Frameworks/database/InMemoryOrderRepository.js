@@ -42,7 +42,6 @@ module.exports = class InMemoryOrderRepository extends OrderRepository {
       const index = temp.findIndex(t => t.orderNumber === orderNumber)
       temp[index].status = status 
       this.orders = temp
-      console.log('actualizando', temp, this.orders)
     } catch(e) {
       throw new Error('error occured')
     }

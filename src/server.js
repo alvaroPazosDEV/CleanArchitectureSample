@@ -5,7 +5,7 @@ const projectDependencies = require('./app/4. Frameworks/dependencies')
 const ErrorHandler = require('./app/4. Frameworks/common/ErrorHandler')
 
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000
 
 projectDependencies.DatabaseService.connect().then(() => {
 
