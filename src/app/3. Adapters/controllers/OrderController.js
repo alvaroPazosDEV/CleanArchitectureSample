@@ -11,10 +11,10 @@ module.exports = class OrderController {
   }
 
   async getOrder (req, res, next) {
-    const GetOrderCommand = new GetOrder(this.databaseService.orderRepository)
+    const GetOrderCommand = new GetOrder(this.databaseService.orderRepository, this.databaseService.customerRepository)
     const { orderId } = req.params
-    const orders = await GetOrderCommand.getOrder(orderId)
-    res.json(orders)
+    const order = await GetOrderCommand.getOrder(orderId)
+    res.json(order)
   }
 
   async deliverOrder (req, res, next) {

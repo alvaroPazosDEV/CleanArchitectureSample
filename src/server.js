@@ -1,5 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const cors = require('cors')
 const routes = require('./app/4. Frameworks/webApi/routes')
 const projectDependencies = require('./app/4. Frameworks/dependencies')
 const ErrorHandler = require('./app/4. Frameworks/common/ErrorHandler')
@@ -11,6 +12,7 @@ projectDependencies.DatabaseService.connect().then(() => {
 
   app.use(bodyParser.urlencoded({ extended: true }))
   app.use(bodyParser.json())
+  app.use(cors())
 
   app.use('/api', routes(projectDependencies))
 
