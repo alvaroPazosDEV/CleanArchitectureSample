@@ -6,8 +6,8 @@ module.exports = class GetOrder {
 
   async getOrder (orderNumber) {
     const order = await this.orderRepository.getByNumber(orderNumber)
-    const client = await this.customerRepository.getByDocument(order.clientDni)
     if(!order) return order
+    const client = await this.customerRepository.getByDocument(order.clientDni)
     return { ...order, client}
   }
 
